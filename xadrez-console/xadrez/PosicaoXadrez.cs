@@ -3,23 +3,35 @@ using tabuleiro;
 
 namespace xadrez_console.xadrez;
 
-public class PosicaoXadrez
+public class PosicaoXadrez : Posicao
 {
-  public char coluna { get; set; }
-  public int linha { get; set; }
-
-  public PosicaoXadrez(char coluna, int linha)
+  public PosicaoXadrez(string referencia) : base(ToLinha(referencia), ToColuna(referencia))
   {
-    this.coluna = coluna;
-    this.linha = linha;
   }
 
-  public Posicao ToPosicao() {
-    return new Posicao(8 - linha, coluna - 'a');
+  private static int ToLinha(string referencia)
+  {
+    int linha = 8 - int.Parse(referencia.Substring(1, 1));
+    if (linha < 0 || linha >= 8)
+    {
+      throw new TabuleiroException($"A posição {referencia} não é permitida no tabuleiro de xadrez.");
+    }
+    return linha;
+  }
+
+  private static int ToColuna(string referencia)
+  {
+    int coluna = referencia[..1].ToLower()[0] - 'a';
+    if (coluna < 0 || coluna >= 8)
+    {
+      throw new TabuleiroException($"A posição {referencia} não é permitida no tabuleiro de xadrez.");
+    }
+    return coluna;
   }
 
   public override string ToString()
   {
-    return "" + coluna + linha;
+    int coluna = 'a' + Coluna;
+    return "" + (char)coluna + (8 - Linha);
   }
 }
