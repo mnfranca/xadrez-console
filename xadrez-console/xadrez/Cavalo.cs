@@ -8,8 +8,18 @@ public class Cavalo : Peca
   {
   }
 
+  public override bool[,] MovimentosPossiveis()
+  {
+    throw new NotImplementedException();
+  }
+
   public override string ToString()
   {
     return "C";
+  }
+
+  protected override bool PodeMover(Posicao posicao)
+  {
+    throw new NotImplementedException();
   }
 }

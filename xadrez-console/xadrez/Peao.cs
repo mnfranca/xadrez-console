@@ -8,8 +8,18 @@ public class Peao : Peca
   {
   }
 
+  public override bool[,] MovimentosPossiveis()
+  {
+    throw new NotImplementedException();
+  }
+
   public override string ToString()
   {
     return "P";
+  }
+
+  protected override bool PodeMover(Posicao posicao)
+  {
+    throw new NotImplementedException();
   }
 }

@@ -8,8 +8,18 @@ public class Rainha : Peca
   {
   }
 
+  public override bool[,] MovimentosPossiveis()
+  {
+    throw new NotImplementedException();
+  }
+
   public override string ToString()
   {
     return "R";
+  }
+
+  protected override bool PodeMover(Posicao posicao)
+  {
+    throw new NotImplementedException();
   }
 }

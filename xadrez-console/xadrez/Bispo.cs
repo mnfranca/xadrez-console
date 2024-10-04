@@ -8,8 +8,18 @@ public class Bispo : Peca
   {
   }
 
+  public override bool[,] MovimentosPossiveis()
+  {
+    throw new NotImplementedException();
+  }
+
   public override string ToString()
   {
     return "B";
+  }
+
+  protected override bool PodeMover(Posicao posicao)
+  {
+    throw new NotImplementedException();
   }
 }
