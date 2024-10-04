@@ -14,6 +14,6 @@ public class Posicao
 
   public override string ToString()
   {
-    return Linha + ", " + Coluna;
+    return Linha + "," + Coluna;
   }
 }
