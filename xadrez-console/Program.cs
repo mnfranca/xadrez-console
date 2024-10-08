@@ -14,23 +14,36 @@ namespace xadrez_console
 
         while (!partida.Terminada)
         {
-          Console.Clear();
-          Tela.ImprimirTabuleiro(partida.Tabuleiro);
+          try
+          {
+            Console.Clear();
+            Tela.ImprimirTabuleiro(partida.Tabuleiro);
+            Console.WriteLine();
+            Console.WriteLine("Turno: " + partida.Turno);
+            Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
 
-          Console.WriteLine();
-          Console.Write("Origem: ");
-          Posicao origem = Tela.LerPosicaoXadrez();
+            Console.WriteLine();
+            Console.Write("Origem ('exit' para sair): ");
+            Posicao origem = Tela.LerPosicaoXadrez();
+            partida.ValidePosicaoOrigem(origem);
 
-          bool[,] posicoesPossiveis = partida.Tabuleiro.Peca(origem).MovimentosPossiveis();
+            bool[,] posicoesPossiveis = partida.Tabuleiro.Peca(origem).MovimentosPossiveis();
 
-          Console.Clear();
-          Tela.ImprimirTabuleiro(partida.Tabuleiro, posicoesPossiveis);
+            Console.Clear();
+            Tela.ImprimirTabuleiro(partida.Tabuleiro, posicoesPossiveis);
 
-          Console.WriteLine();
-          Console.Write("Destino: ");
-          Posicao destino = Tela.LerPosicaoXadrez();
+            Console.WriteLine();
+            Console.Write("Destino ('exit' para sair): ");
+            Posicao destino = Tela.LerPosicaoXadrez();
+            partida.ValidePosicaoDestino(origem, destino);
 
-          partida.Movimente(origem, destino);
+            partida.RealizeJogada(origem, destino);
+          }
+          catch (TabuleiroException e)
+          {
+            Console.WriteLine(e.Message);
+            Console.ReadLine();
+          }
         }
 
       }

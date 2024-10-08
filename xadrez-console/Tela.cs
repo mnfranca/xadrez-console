@@ -49,6 +49,10 @@ public class Tela
   public static PosicaoXadrez LerPosicaoXadrez()
   {
     string input = Console.ReadLine() ?? "";
+    if (input.ToLower().Equals("exit"))
+    {
+      Environment.Exit(0);
+    }
     return new PosicaoXadrez(input);
   }
 
