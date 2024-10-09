@@ -20,8 +20,8 @@ namespace xadrez_console
             Tela.ImprimirPartida(partida);
 
             Console.WriteLine();
-            Console.Write("Origem ('exit' para sair): ");
-            Posicao origem = Tela.LerPosicaoXadrez();
+            Console.Write("Origem ('q' para sair): ");
+            Posicao origem = Tela.LerPosicaoXadrez(partida);
             partida.ValidePosicaoOrigem(origem);
 
             bool[,] posicoesPossiveis = partida.Tabuleiro.Peca(origem).MovimentosPossiveis();
@@ -30,8 +30,8 @@ namespace xadrez_console
             Tela.ImprimirTabuleiro(partida.Tabuleiro, posicoesPossiveis);
 
             Console.WriteLine();
-            Console.Write("Destino ('exit' para sair): ");
-            Posicao destino = Tela.LerPosicaoXadrez();
+            Console.Write("Destino ('q' para sair): ");
+            Posicao destino = Tela.LerPosicaoXadrez(partida);
             partida.ValidePosicaoDestino(origem, destino);
 
             partida.RealizeJogada(origem, destino);
@@ -42,6 +42,9 @@ namespace xadrez_console
             Console.ReadLine();
           }
         }
+
+        Console.Clear();
+        Tela.ImprimirPartida(partida);
 
       }
       catch (TabuleiroException e)

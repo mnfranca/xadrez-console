@@ -14,11 +14,19 @@ public class Tela
 
     Console.WriteLine();
     Console.WriteLine("Turno: " + partida.Turno);
-    Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
 
-    if (partida.Xeque)
+    if (!partida.Terminada)
     {
-      Console.WriteLine("XEQUE!");
+      Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
+      if (partida.Xeque)
+      {
+        Console.WriteLine("XEQUE!");
+      }
+    }
+    else
+    {
+      Console.WriteLine("XEQUEMATE!");
+      Console.WriteLine("Vencedor: " + partida.JogadorAtual);
     }
   }
 
@@ -87,10 +95,10 @@ public class Tela
     Console.Write("]");
   }
 
-  public static PosicaoXadrez LerPosicaoXadrez()
+  public static PosicaoXadrez LerPosicaoXadrez(PartidaXadrez partida)
   {
     string input = Console.ReadLine() ?? "";
-    if (input.ToLower().Equals("exit"))
+    if (input.ToLower().Equals("q"))
     {
       Environment.Exit(0);
     }
