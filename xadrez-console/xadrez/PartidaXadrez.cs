@@ -243,25 +243,38 @@ public class PartidaXadrez
 
   private void ColocarPecas()
   {
-    // ColocarNovaPeca("c1", new Torre(Tabuleiro, Cor.Branca));
-    // ColocarNovaPeca("c2", new Torre(Tabuleiro, Cor.Branca));
-    // ColocarNovaPeca("d2", new Torre(Tabuleiro, Cor.Branca));
-    // ColocarNovaPeca("e2", new Torre(Tabuleiro, Cor.Branca));
-    // ColocarNovaPeca("e1", new Torre(Tabuleiro, Cor.Branca));
-    // ColocarNovaPeca("d1", new Rei(Tabuleiro, Cor.Branca));
+    ColocarNovaPeca("a1", new Torre(Tabuleiro, Cor.Branca));
+    ColocarNovaPeca("b1", new Cavalo(Tabuleiro, Cor.Branca));
+    ColocarNovaPeca("c1", new Bispo(Tabuleiro, Cor.Branca));
+    ColocarNovaPeca("d1", new Rainha(Tabuleiro, Cor.Branca));
+    ColocarNovaPeca("e1", new Rei(Tabuleiro, Cor.Branca));
+    ColocarNovaPeca("f1", new Bispo(Tabuleiro, Cor.Branca));
+    ColocarNovaPeca("g1", new Cavalo(Tabuleiro, Cor.Branca));
+    ColocarNovaPeca("h1", new Torre(Tabuleiro, Cor.Branca));
+    ColocarNovaPeca("a2", new Peao(Tabuleiro, Cor.Branca));
+    ColocarNovaPeca("b2", new Peao(Tabuleiro, Cor.Branca));
+    ColocarNovaPeca("c2", new Peao(Tabuleiro, Cor.Branca));
+    ColocarNovaPeca("d2", new Peao(Tabuleiro, Cor.Branca));
+    ColocarNovaPeca("e2", new Peao(Tabuleiro, Cor.Branca));
+    ColocarNovaPeca("f2", new Peao(Tabuleiro, Cor.Branca));
+    ColocarNovaPeca("g2", new Peao(Tabuleiro, Cor.Branca));
+    ColocarNovaPeca("h2", new Peao(Tabuleiro, Cor.Branca));
 
-    // ColocarNovaPeca("c7", new Torre(Tabuleiro, Cor.Preta));
-    // ColocarNovaPeca("c8", new Torre(Tabuleiro, Cor.Preta));
-    // ColocarNovaPeca("d7", new Torre(Tabuleiro, Cor.Preta));
-    // ColocarNovaPeca("e7", new Torre(Tabuleiro, Cor.Preta));
-    // ColocarNovaPeca("e8", new Torre(Tabuleiro, Cor.Preta));
-    // ColocarNovaPeca("d8", new Rei(Tabuleiro, Cor.Preta));
-
-    ColocarNovaPeca("c1", new Torre(Tabuleiro, Cor.Branca));
-    ColocarNovaPeca("d1", new Rei(Tabuleiro, Cor.Branca));
-    ColocarNovaPeca("h7", new Torre(Tabuleiro, Cor.Branca));
-
-    ColocarNovaPeca("a8", new Rei(Tabuleiro, Cor.Preta));
-    ColocarNovaPeca("b8", new Torre(Tabuleiro, Cor.Preta));
+    ColocarNovaPeca("a8", new Torre(Tabuleiro, Cor.Preta));
+    ColocarNovaPeca("b8", new Cavalo(Tabuleiro, Cor.Preta));
+    ColocarNovaPeca("c8", new Bispo(Tabuleiro, Cor.Preta));
+    ColocarNovaPeca("d8", new Rainha(Tabuleiro, Cor.Preta));
+    ColocarNovaPeca("e8", new Rei(Tabuleiro, Cor.Preta));
+    ColocarNovaPeca("f8", new Bispo(Tabuleiro, Cor.Preta));
+    ColocarNovaPeca("g8", new Cavalo(Tabuleiro, Cor.Preta));
+    ColocarNovaPeca("h8", new Torre(Tabuleiro, Cor.Preta));
+    ColocarNovaPeca("a7", new Peao(Tabuleiro, Cor.Preta));
+    ColocarNovaPeca("b7", new Peao(Tabuleiro, Cor.Preta));
+    ColocarNovaPeca("c7", new Peao(Tabuleiro, Cor.Preta));
+    ColocarNovaPeca("d7", new Peao(Tabuleiro, Cor.Preta));
+    ColocarNovaPeca("e7", new Peao(Tabuleiro, Cor.Preta));
+    ColocarNovaPeca("f7", new Peao(Tabuleiro, Cor.Preta));
+    ColocarNovaPeca("g7", new Peao(Tabuleiro, Cor.Preta));
+    ColocarNovaPeca("h7", new Peao(Tabuleiro, Cor.Preta));
   }
 }

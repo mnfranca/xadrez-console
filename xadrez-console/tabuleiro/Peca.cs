@@ -43,7 +43,11 @@ public abstract class Peca
     return MovimentosPossiveis()[posicao.Linha, posicao.Coluna];
   }
 
-  protected abstract bool PodeMover(Posicao posicao);
+  protected bool PodeMover(Posicao posicao)
+  {
+    Peca outraPeca = Tabuleiro.Peca(posicao);
+    return outraPeca == null || outraPeca.Cor != Cor;
+  }
 
   public abstract bool[,] MovimentosPossiveis();
 }

@@ -8,12 +8,6 @@ public class Torre : Peca
   {
   }
 
-  protected override bool PodeMover(Posicao posicao)
-  {
-    Peca outraPeca = Tabuleiro.Peca(posicao);
-    return outraPeca == null || outraPeca.Cor != Cor;
-  }
-
   public override bool[,] MovimentosPossiveis()
   {
     bool[,] matriz = new bool[Tabuleiro.Linhas, Tabuleiro.Colunas];
