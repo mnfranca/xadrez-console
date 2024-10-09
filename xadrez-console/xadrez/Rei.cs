@@ -1,11 +1,15 @@
 using tabuleiro;
+using xadrez_console.xadrez;
 
 namespace xadrez;
 
 public class Rei : Peca
 {
-  public Rei(Tabuleiro tabuleiro, Cor cor) : base(tabuleiro, cor)
+  private PartidaXadrez Partida;
+
+  public Rei(Tabuleiro tabuleiro, Cor cor, PartidaXadrez partida) : base(tabuleiro, cor)
   {
+    Partida = partida;
   }
 
   public override bool[,] MovimentosPossiveis()
@@ -71,6 +75,37 @@ public class Rei : Peca
       {
         matriz[outraPosicao.Linha, outraPosicao.Coluna] = true;
       }
+
+      // #jogada-especial Roque
+      if (QtdMovimentos == 0 && !Partida.Xeque)
+      {
+
+        // #jogada-especial Roque pequeno
+        Posicao posicaoTorre1 = new Posicao(Posicao.Linha, Posicao.Coluna + 3);
+        if (TesteTorreParaRoque(posicaoTorre1))
+        {
+          Posicao p1 = new Posicao(Posicao.Linha, Posicao.Coluna + 1);
+          Posicao p2 = new Posicao(Posicao.Linha, Posicao.Coluna + 2);
+          if (Tabuleiro.Peca(p1) == null && Tabuleiro.Peca(p2) == null)
+          {
+            matriz[Posicao.Linha, Posicao.Coluna + 2] = true;
+          }
+        }
+
+        // #jogada-especial Roque grande
+        Posicao posicaoTorre2 = new Posicao(Posicao.Linha, Posicao.Coluna - 4);
+        if (TesteTorreParaRoque(posicaoTorre2))
+        {
+          Posicao p1 = new Posicao(Posicao.Linha, Posicao.Coluna - 1);
+          Posicao p2 = new Posicao(Posicao.Linha, Posicao.Coluna - 2);
+          Posicao p3 = new Posicao(Posicao.Linha, Posicao.Coluna - 3);
+          if (Tabuleiro.Peca(p1) == null && Tabuleiro.Peca(p2) == null && Tabuleiro.Peca(p3) == null)
+          {
+            matriz[Posicao.Linha, Posicao.Coluna - 2] = true;
+          }
+        }
+      }
+
     }
 
     return matriz;
@@ -79,5 +114,11 @@ public class Rei : Peca
   public override string ToString()
   {
     return "R";
+  }
+
+  private bool TesteTorreParaRoque(Posicao posicao)
+  {
+    Peca peca = Tabuleiro.Peca(posicao);
+    return peca != null && peca is Torre && peca.Cor == Cor && peca.QtdMovimentos == 0;
   }
 }
