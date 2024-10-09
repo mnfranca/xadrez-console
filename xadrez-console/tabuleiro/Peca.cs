@@ -19,6 +19,11 @@ public abstract class Peca
     QtdMovimentos++;
   }
 
+  public void DecrementarQtdMovimentos()
+  {
+    QtdMovimentos--;
+  }
+
   public bool ExisteMovimentosPossiveis()
   {
     bool[,] matriz = MovimentosPossiveis();
